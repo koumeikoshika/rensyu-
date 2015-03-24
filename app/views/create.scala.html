@@ -1,0 +1,9 @@
+@(createForm: Form[CreateForm])
+
+@import helper._
+
+@helper.form(action = routes.Application.newTask) {
+  @inputText(createForm("title"))
+  @inputText(createForm("contents"))
+  <input type="submit" value="Submit">
+}
