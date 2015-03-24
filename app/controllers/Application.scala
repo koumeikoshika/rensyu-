@@ -19,8 +19,8 @@ object Application extends Controller {
 
 
   def index = Action {
-   Ok("")
-   }
+    Ok("")
+  }
 
   def tasks = Action{
     Ok("aiueo")
