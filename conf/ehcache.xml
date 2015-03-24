@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+  <diskStore path="/tmp"/>
+  <defaultCache
+    maxEntriesLocalHeap="10000"
+    maxEntriesLocalDisk="1000"
+    eternal="false"
+    diskSpoolBufferSizeMB="20"
+    diskPersistent="true"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    memoryStoreEvictionPolicy="LFU"
+    transactionalMode="off">
+  </defaultCache>
+  
+</ehcache>
