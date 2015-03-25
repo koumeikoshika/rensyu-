@@ -28,9 +28,9 @@ object Application extends Controller {
   }
 
   def show(id: Int) = Action{
-    findById(id: Int) match{
-      case Some(id) => Ok(views.html.show(Task))
-      case _        => "nothing"
+    Task.findById(id: Int) match {
+      case Some(Task) => Ok(views.html.show(Task))
+      case _          => "nothing"
     }
   }
 
