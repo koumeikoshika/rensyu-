@@ -20,7 +20,7 @@ object Application extends Controller {
 
 
   def index = Action {
-    Ok("")
+    Ok(views.html.index(""))
   }
 
   def tasks = Action{
@@ -29,8 +29,8 @@ object Application extends Controller {
 
   def show(id: Int) = Action{
     Task.findById(id: Int) match {
-      case Some(Task) => Ok(views.html.show(Task))
-      case _          => "nothing"
+      case Some(showtask) => Ok(views.html.show(showtask))
+      case None       => NotFound("そのタスクはありません")
     }
   }
 

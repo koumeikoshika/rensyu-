@@ -7,6 +7,7 @@ GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+ GET /webjars/*file                 controllers.WebJarAssets.at(file)
 
 # Taskの一覧
 GET     /tasks                      controllers.Application.tasks
