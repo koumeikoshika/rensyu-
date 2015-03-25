@@ -5,7 +5,7 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import scalikejdbc._
-import models.tasks
+import models.tasks.Task
 
 case class CreateForm(title: String, content: String)
 
@@ -24,12 +24,14 @@ object Application extends Controller {
   }
 
   def tasks = Action{
-    Ok(views.html.list())
+    Ok(views.html.list(Task))
   }
 
   def show(id: Int) = Action{
-    //match使う？
-    Ok(views.html.show(Task))
+    findById(id: Int) match{
+      case Some(id) => Ok(views.html.show(Task))
+      case _        => "nothing"
+    }
   }
 
   def createFormView = Action {
@@ -51,7 +53,8 @@ object Application extends Controller {
   }
 
   def delete(id: Int) = Action{
-    Ok(id.toString)
+    Task.delete(id)
+    Redirect(routes.Application.tasks)
   }
 
 }
