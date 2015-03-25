@@ -5,6 +5,7 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import scalikejdbc._
+import models.tasks
 
 case class CreateForm(title: String, content: String)
 
@@ -23,15 +24,16 @@ object Application extends Controller {
   }
 
   def tasks = Action{
-    Ok("aiueo")
+    Ok(views.html.list())
   }
 
   def show(id: Int) = Action{
-    Ok(id.toString)
+    //match使う？
+    Ok(views.html.show(Task))
   }
 
   def createFormView = Action {
-  Ok(views.html.create(createForm))
+    Ok(views.html.create(createForm))
   }
 
   def create = Action { implicit request =>
