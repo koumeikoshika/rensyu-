@@ -2,8 +2,8 @@
 
 @import helper._
 
-@helper.form(action = routes.Application.newTask) {
-  @inputText(createForm("title"))
-  @inputText(createForm("contents"))
-  <input type="submit" value="Submit">
-}
+  @helper.form(action = routes.Application.create) {
+    @inputText(createForm("title"))
+    @inputText(createForm("contents"))
+    <input type="submit" value="保存">
+  }

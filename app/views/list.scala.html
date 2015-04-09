@@ -1,0 +1,14 @@
+@import models.tasks.Task
+@import helper._
+@(tasks: List[Task])
+
+<h1>タスク一覧</h1>
+
+<table border=1>
+
+<tr><th>タスク名</th><th>内容</th><th>削除</th></tr>
+@for(task <- tasks) {
+  @helper.form(action = routes.Application.delete(task.id)) {
+    <tr><td>@task.title</td><td>@task.content</td><td><input type="button" value ="削除"></td></tr>
+}}
+</table>

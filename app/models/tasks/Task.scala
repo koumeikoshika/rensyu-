@@ -29,5 +29,11 @@ object Task extends SQLSyntaxSupport[Task] {
       sql"select id, title, content, createdAt from tasks where id = ${id}".map(Task(_)).single.apply()
     }
   }
+  
+  def all: List[Task] = {
+    DB readOnly { implicit session =>
+      sql"select id, title, content, createdAt from tasks".map(Task(_)).list.apply()
+    }
+  }
 
 }

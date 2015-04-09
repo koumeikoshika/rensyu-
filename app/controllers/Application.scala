@@ -24,15 +24,15 @@ object Application extends Controller {
   }
 
   def tasks = Action{
-    Ok(views.html.list(Task))
+    Ok(views.html.list(Task.all))
   }
 
-  def show(id: Int) = Action{
-    Task.findById(id: Int) match {
-      case Some(showtask) => Ok(views.html.show(showtask))
-      case None       => NotFound("そのタスクはありません")
-    }
-  }
+  def show(id: Int) = TODO//Action{
+//    Task.findById(id: Int) match {
+//      case Some(showtask) => Ok(views.html.show(showtask))
+//      case None       => NotFound("そのタスクはありません")
+//    }
+//  }
 
   def createFormView = Action {
     Ok(views.html.create(createForm))
